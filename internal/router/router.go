@@ -7,12 +7,8 @@ func Init() {
 	// Set the router as the default one shipped with Gin
 	router := gin.Default()
 
-	// Serve frontend static files
-	router.GET("/api/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	// Initialize the routes
+	initializeRoutes(router)
 
 	// Start and run the server
 	err := router.Run(":8080")
