@@ -1,16 +1,17 @@
 package main
 
 import (
-	"fmt"
 	"github.com/LuizSSampaio/gopportunities/config"
 	"github.com/LuizSSampaio/gopportunities/internal/router"
 )
 
 func main() {
+	logger := config.GetLogger()
+
 	// Initialize the config
 	configErr := config.Init()
 	if configErr != nil {
-		fmt.Println(configErr)
+		logger.Fatalf("Error initializing config: %s", configErr.Error())
 		return
 	}
 
